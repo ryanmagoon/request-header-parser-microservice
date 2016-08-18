@@ -17,7 +17,7 @@ app.get('/api/whoami', function(req, res) {
     let language = headers['accept-language'].split(',')[0];
     let softwareDirty = userAgent.match(/\([;\w\s]+\)/)[0];
     res.send({
-        ipaddress: ip.match(/:[\d.]+/)[0],
+        ipaddress: ip.match(/:[\d.]+/)[0].substr(1),
         language: language,
         software: softwareDirty.substr(1, softwareDirty.length - 2)
     });
